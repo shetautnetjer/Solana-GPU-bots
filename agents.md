@@ -150,7 +150,7 @@ Must include:
 
 ### 2. Install Script
 If the signal uses any crate not yet installed or system tool (like linking to CUDA or FFTW), also output:
-follow an example of https://github.com/shetautnetjer/hello-gpu
+follow an example of to auto find folders and add to path using powershell https://github.com/shetautnetjer/hello-gpu
 
 
 Should:
