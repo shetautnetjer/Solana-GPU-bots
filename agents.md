@@ -118,3 +118,55 @@ The goal is to collect thousands of normalized, tagged, post-trade outcomes, so 
     Auto-optimize weights and confidence thresholds
 
 This is how you future-proof trading intelligence.
+# Codex Build Instructions (`agents.md`)
+
+## 🧠 Purpose
+
+This file describes how **Codex (or any AI-assisted dev environment)** should structure feature modules and setup scripts during initial development.
+
+There are no runtime agents. This is not a training loop or self-updating system.
+
+---
+
+## ✅ Goal
+
+When using Codex to build new feature modules (e.g. FFT scoring, Hilbert phase detection), the AI must:
+
+1. Output the Rust code file with the logic
+2. Output a matching setup script (PowerShell `.ps1`) if any install or system config is required
+3. Log all signals in a structured way (Arrow2-compatible)
+
+---
+
+## 📂 Expected Outputs from Codex Tasks
+
+### 1. Signal Feature Module
+**Example Output File:**
+
+Must include:
+- A public `compute_feature()` function
+- Return type matching the signal schema
+- No runtime scoring logic — only math feature generation
+
+### 2. Install Script
+If the signal uses any crate not yet installed or system tool (like linking to CUDA or FFTW), also output:
+follow an example of https://github.com/shetautnetjer/hello-gpu
+
+
+Should:
+- Run `cargo add rustfft`
+- Export environment variables if needed
+- Optionally add to `src/signals/mod.rs`
+
+### 3. Log Schema
+All feature modules must emit a `FeatureRecord`:
+
+```rust
+struct FeatureRecord {
+  slot: u64,
+  price: f64,
+  zscore: f64,
+  tag: &'static str,
+  strategy_id: String,
+  timeframe: String,
+}
