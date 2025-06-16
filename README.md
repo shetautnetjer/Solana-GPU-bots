@@ -1,6 +1,6 @@
 P# Price‑Only TA Stack for Solana Trading Bots
 
-*Rust + CUDA 11.8 — Zero‑Order‑Book, Hyper‑Low‑Latency*
+*Rust + CUDA 12.5 — Zero‑Order‑Book, Hyper‑Low‑Latency*
 
 ---
 
@@ -267,16 +267,6 @@ Signal → Jupiter quote → Safety checks →
 * **Light Protocol** — [https://docs.lightprotocol.com/](https://docs.lightprotocol.com/)
 * **Pyth Network** — [https://docs.pyth.network/](https://docs.pyth.network/)
 * **Phoenix Order Book** — [https://github.com/ellipsislabs/phoenix-v1](https://github.com/ellipsislabs/phoenix-v1)
-
----
-
-## 🤝 Contributing
-
-1. Fork → Feature branch → Pull request.
-2. Run `cargo fmt && cargo clippy -- -D warnings`.
-3. New CUDA kernels must include Criterion bench.
-
-   Sign PRs with DCO.
 
 ---
 
