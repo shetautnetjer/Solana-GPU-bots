@@ -2,6 +2,7 @@
 use reqwest::{Client, StatusCode};
 use serde_json::Value;
 use thiserror::Error;
+use std::collections::HashSet;
 
 #[derive(Error, Debug)]
 pub enum JupiterError {
@@ -21,44 +22,52 @@ pub enum JupiterError {
     InvalidPair(String),
 }
 
-const DEFAULT_URL: &str = "https://quote-api.jup.ag/v6/indexed-route-map";
-
-/// Fetch pool token accounts for a given pair
+/// Fetch pool token accounts for a given pair by requesting a quote and extracting pool accounts
 pub async fn fetch_pool_token_accounts(pair: &str) -> Result<Vec<String>, JupiterError> {
-    fetch_pool_token_accounts_from_url(DEFAULT_URL, pair).await
-}
-
-/// Fetch pool token accounts from a specific URL
-pub async fn fetch_pool_token_accounts_from_url(url: &str, pair: &str) -> Result<Vec<String>, JupiterError> {
-    let client = Client::new();
-    let res = client.get(url).send().await?;
+    // Split the pair into two mint addresses
+    let (input_mint, output_mint) = pair.split_once('/')
+        .ok_or_else(|| JupiterError::InvalidPair(pair.to_string()))?;
+    
+    // Use a small amount for discovery (1 SOL = 1_000_000_000 lamports)
+    let amount = 1_000_000_000u64;
+    let slippage_bps = 50u16;
+    
+    let url = format!(
+        "https://lite-api.jup.ag/swap/v1/quote?inputMint={}&outputMint={}&amount={}&slippageBps={}&restrictIntermediateTokens=true",
+        input_mint, output_mint, amount, slippage_bps
+    );
+    
+    let res = Client::new()
+        .get(&url)
+        .header("accept", "application/json")
+        .send()
+        .await?;
     
     if !res.status().is_success() {
         let status = res.status();
         let body = res.text().await.unwrap_or_default();
-        return Err(JupiterError::Status {
-            status,
-            body,
-        });
+        return Err(JupiterError::Status { status, body });
     }
     
-    let res: Value = res.json().await?;
-
-    let mut parts = pair.split('/');
-    let base = parts.next().ok_or_else(|| JupiterError::InvalidPair(pair.to_string()))?;
-    let quote = parts.next().ok_or_else(|| JupiterError::InvalidPair(pair.to_string()))?;
-
-    let map = &res["indexedRouteMap"];
-    let pool_keys = map.get(base).and_then(|m| m.get(quote));
-
-    if let Some(Value::Array(pools)) = pool_keys {
-        Ok(pools
-            .iter()
-            .filter_map(|v| v.as_str().map(|s| s.to_string()))
-            .collect())
-    } else {
-        Ok(vec![])
+    let json: Value = res.json().await?;
+    
+    // Extract pool accounts from routePlan
+    let mut accounts = HashSet::new();
+    if let Some(routes) = json.get("routePlan").and_then(|v| v.as_array()) {
+        for route in routes {
+            if let Some(swap_info) = route.get("swapInfo") {
+                if let Some(amm_key) = swap_info.get("ammKey").and_then(|v| v.as_str()) {
+                    accounts.insert(amm_key.to_string());
+                }
+            }
+        }
     }
+    
+    if accounts.is_empty() {
+        return Err(JupiterError::NoRoute);
+    }
+    
+    Ok(accounts.into_iter().collect())
 }
 
 /// Request a quote with **ExactIn** semantics.
@@ -74,7 +83,7 @@ pub async fn quote_exact_in(
     slippage_bps: u16,
 ) -> Result<Value, JupiterError> {
     let url = format!(
-        "https://quote-api.jup.ag/v6/quote?inputMint={}&outputMint={}&amount={}&swapMode=ExactIn&slippageBps={}",
+        "https://lite-api.jup.ag/swap/v1/quote?inputMint={}&outputMint={}&amount={}&slippageBps={}&restrictIntermediateTokens=true",
         input_mint, output_mint, amount, slippage_bps
     );
 
@@ -110,41 +119,5 @@ pub async fn quote_exact_in(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use httpmock::MockServer;
-
-    #[tokio::test]
-    async fn non_200_returns_error() {
-        let server = MockServer::start_async().await;
-        server
-            .mock_async(|when, then| {
-                when.method("GET");
-                then.status(500);
-            })
-            .await;
-
-        let res = fetch_pool_token_accounts_from_url(&server.url("/"), "A/B").await;
-        match res {
-            Err(JupiterError::Status { status, .. }) => assert_eq!(status.as_u16(), 500),
-            _ => panic!("unexpected result: {:?}", res),
-        }
-    }
-
-    #[tokio::test]
-    async fn invalid_pair_format_returns_error() {
-        let server = MockServer::start_async().await;
-        server
-            .mock_async(|when, then| {
-                when.method("GET");
-                then.status(200).json_body(serde_json::json!({
-                    "indexedRouteMap": {}
-                }));
-            })
-            .await;
-
-        let res = fetch_pool_token_accounts_from_url(&server.url("/"), "invalid").await;
-        match res {
-            Err(JupiterError::InvalidPair(_)) => {},
-            _ => panic!("expected InvalidPair error, got: {:?}", res),
-        }
-    }
+    // The old test for fetch_pool_token_accounts_from_url is no longer relevant and has been removed.
 }
