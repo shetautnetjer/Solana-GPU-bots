@@ -4,12 +4,12 @@ use crossbeam::channel::Receiver;
 use csv::Writer;
 use std::fs::OpenOptions;
 
-pub fn run_logger(rx: Receiver<LogRow>) {
+pub fn run_logger(rx: Receiver<LogRow>, path: &str) {
     // Create or append CSV file
     let file = OpenOptions::new()
         .create(true)
         .append(true)
-        .open("pool_updates.csv")
+        .open(path)
         .expect("Unable to open CSV");
 
     let mut wtr = Writer::from_writer(file);
@@ -23,6 +23,7 @@ pub fn run_logger(rx: Receiver<LogRow>) {
         "owner",
         "ui_amount",
         "delta",
+        "rolling_delta",
     ]);
 
     for row in rx {
