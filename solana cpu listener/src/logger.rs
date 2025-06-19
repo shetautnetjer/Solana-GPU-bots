@@ -1,5 +1,5 @@
 // -------- src/logger.rs ---------------------------------------
-use crate::types::LogRow;
+use crate::types::types::LogRow;
 use crossbeam::channel::Receiver;
 use csv::Writer;
 use std::fs::OpenOptions;
