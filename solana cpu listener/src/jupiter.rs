@@ -1,11 +1,32 @@
 // -------- src/jupiter.rs --------------------------------------
-use reqwest::Client;
+use reqwest::{Client, StatusCode};
 use serde_json::Value;
 
-pub async fn fetch_pool_token_accounts(pair: &str) -> Result<Vec<String>, reqwest::Error> {
+#[derive(Debug)]
+pub enum JupiterError {
+    Http(reqwest::Error),
+    Status(StatusCode),
+}
+
+impl From<reqwest::Error> for JupiterError {
+    fn from(err: reqwest::Error) -> Self {
+        JupiterError::Http(err)
+    }
+}
+
+const DEFAULT_URL: &str = "https://quote-api.jup.ag/v6/indexed-route-map";
+
+pub async fn fetch_pool_token_accounts(pair: &str) -> Result<Vec<String>, JupiterError> {
+    fetch_pool_token_accounts_from_url(DEFAULT_URL, pair).await
+}
+
+pub async fn fetch_pool_token_accounts_from_url(url: &str, pair: &str) -> Result<Vec<String>, JupiterError> {
     let client = Client::new();
-    let url = "https://public.jupiterapi.com/v1/indexed-route-map";
-    let res: Value = client.get(url).send().await?.json().await?;
+    let res = client.get(url).send().await?;
+    if !res.status().is_success() {
+        return Err(JupiterError::Status(res.status()));
+    }
+    let res: Value = res.json().await?;
 
     let mut parts = pair.split('/');
     let base = parts.next().unwrap_or("");
@@ -21,5 +42,28 @@ pub async fn fetch_pool_token_accounts(pair: &str) -> Result<Vec<String>, reqwes
             .collect())
     } else {
         Ok(vec![])
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use httpmock::MockServer;
+
+    #[tokio::test]
+    async fn non_200_returns_error() {
+        let server = MockServer::start_async().await;
+        server
+            .mock_async(|when, then| {
+                when.method("GET");
+                then.status(500);
+            })
+            .await;
+
+        let res = fetch_pool_token_accounts_from_url(&server.url("/"), "A/B").await;
+        match res {
+            Err(JupiterError::Status(code)) => assert_eq!(code.as_u16(), 500),
+            _ => panic!("unexpected result: {:?}", res),
+        }
     }
 }
