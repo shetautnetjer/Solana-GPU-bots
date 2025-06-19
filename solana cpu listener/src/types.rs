@@ -11,5 +11,6 @@ pub mod types {
         pub owner: String,
         pub ui_amount: f64,
         pub delta: f64,
+        pub rolling_delta: f64,
     }
 }
