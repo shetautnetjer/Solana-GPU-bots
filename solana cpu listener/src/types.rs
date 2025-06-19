@@ -1,6 +1,4 @@
-
 // -------- src/types.rs -----------------------------------------
-// Shared struct for log rows
 pub mod types {
     use serde::Serialize;
 
