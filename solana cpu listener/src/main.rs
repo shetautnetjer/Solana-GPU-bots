@@ -2,7 +2,7 @@
 mod jupiter;
 mod wss;
 mod logger;
-mod types;
+pub mod types;
 
 use clap::Parser;
 use crossbeam::channel;
