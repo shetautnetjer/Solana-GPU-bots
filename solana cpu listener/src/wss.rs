@@ -1,5 +1,5 @@
 // -------- src/wss.rs ------------------------------------------
-use crate::types::LogRow;
+use crate::types::types::LogRow;
 use crossbeam::channel::Sender;
 use futures_util::{SinkExt, StreamExt};
 use serde_json::json;
@@ -32,7 +32,7 @@ pub async fn subscribe_to_account(account: String, tx: Sender<LogRow>) {
         ]
     });
     let _ = write
-        .send(Message::Text(sub_msg.to_string()))
+        .send(Message::Text(sub_msg.to_string().into()))
         .await
         .map_err(|e| eprintln!("WS send error: {e}"));
 
