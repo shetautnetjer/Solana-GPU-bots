@@ -1,0 +1,19 @@
+[env]
+# OpenSSL paths for Windows
+OPENSSL_DIR = "C:/Program Files/OpenSSL-Win64"
+OPENSSL_LIB_DIR = "C:/Program Files/OpenSSL-Win64/lib/VC/x64/MD"
+OPENSSL_INCLUDE_DIR = "C:/Program Files/OpenSSL-Win64/include"
+
+# CUDA paths
+CUDA_PATH = "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8"
+CUDA_HOME = "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8"
+
+# MSVC paths (adjust version as needed)
+MSVC_PATH = "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.40.33807"
+MSVC_INCLUDE = "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.40.33807/include"
+MSVC_LIB = "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.40.33807/lib/x64"
+
+# Windows SDK paths
+WINDOWS_SDK_PATH = "C:/Program Files (x86)/Windows Kits/10"
+WINDOWS_SDK_INCLUDE = "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0"
+WINDOWS_SDK_LIB = "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64" 

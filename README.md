@@ -273,3 +273,31 @@ This software is for educational and research purposes. Trading cryptocurrencies
 - **Issues**: [GitHub Issues](https://github.com/your-username/Solana-GPU-bots/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/your-username/Solana-GPU-bots/discussions)
 - **Documentation**: [Wiki](https://github.com/your-username/Solana-GPU-bots/wiki)
+
+## GPU Workspace Integration Workflow
+
+1. **Environment Setup**
+   - Run `hello-gpu\scripts\init_gpu_env.ps1` in every new shell before building or testing.
+   - This sets up CUDA, MSVC, and OpenSSL for all workspace crates.
+
+2. **hello-gpu as a Foundation**
+   - All GPU/CUDA code and tests should be developed in `hello-gpu` first.
+   - Once stable, use these functions in other crates (like `pool_indexer`) via the workspace dependency.
+
+3. **Testing Integration**
+   - To verify that `pool_indexer` can use `hello-gpu`, run:
+     ```
+     cargo run -p pool_indexer -- TestGpu
+     ```
+   - Or run the integration test:
+     ```
+     cargo test -p pool_indexer test_hello_gpu_integration
+     ```
+
+4. **Adding New GPU Features**
+   - Add new kernels and Rust wrappers in `hello-gpu`.
+   - Rebuild `hello-gpu` and then use the new features in `pool_indexer` or other workspace crates.
+
+5. **Troubleshooting**
+   - If you see errors about `cl.exe` or CUDA, re-run the environment setup script.
+   - If you add new kernels, rebuild `hello-gpu` before using them elsewhere.

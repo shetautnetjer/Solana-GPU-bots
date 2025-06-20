@@ -1,28 +1,44 @@
-2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv
-3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh
-4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
-5DkLaee4Ctm9v8bka1zGeuPUTbngZaznZsc1t3L4pump
-5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm
-6MQpbiTC2YcogidTmKqMLK82qvE9z5QEm7EP3AEDpump
-6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN
-7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr
-8Y5MwnUM19uqhnsrFnKijrmn33CmHBTUoedXtTGDpump
-8a5NY9MAdY3NjKsgPUYfqoZcmGKdZkotrjWgZM1dpump
-9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump
-AkePSMmyZ3hg85WyDMFUp1svEhzkbvbmwkSR5JPtbBLV
-BediSYEPUiuye8W5bFJueqwpLpry9CckehLEv1tBmoon
-C5HdaWbqhJWsMB5WbGxhHgvmC513a11nL7F5SM5epump
-Cy1GS2FqefgaMbi45UunrUzin1rfEmTUYnomddzBpump
-DtR4D9FtVoTX2569gaL837ZgrB6wNjj6tkmnX9Rdk9B2
-EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
-Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
-Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk
-FkqvTmDNgxgcdS7fPbZoQhPVuaYJPwSsP8mm4p7oNgf6
-Grass7B4RdKfBCjTKgSqnXkqjwiGvQyFbuSCUJr3XXjs
-JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN
-SNS8DJbHc34nKySHVhLGMUUE72ho6igvJaxtq9T3cX3
-So11111111111111111111111111111111111111112
-ZEUS1aR7aX8DFFJf5QjWj2ftDDdNTroMNGo8YoQm3Gq
-boopkpWqe68MSxLqBGogs8ZbUDN4GXaLhFwNP7mpP1i5
-fHUNprW7aSQadmPXFt4YyQUwv4VNua3VXZmeNxqpump
-zBTCug3er3tLyffELcvDNrKkCymbPWysGcWihESYfLg
+# Solana Token Mint Whitelist
+# Format: One mint address per line
+# Comments start with #
+
+# Major Stablecoins
+EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v  # USDC
+Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB  # USDT
+
+# Native SOL (Wrapped)
+So11111111111111111111111111111111111111112   # SOL
+
+# Major DeFi Tokens
+4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R  # RAY (Raydium)
+ZEUS1aR7aX8DFFJf5QjWj2ftDDdNTroMNGo8YoQm3Gq  # ZEUS
+JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN  # JUP (Jupiter)
+Grass7B4RdKfBCjTKgSqnXkqjwiGvQyFbuSCUJr3XXjs  # GRASS
+
+# Meme Tokens / Community Tokens
+2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv  # PENGU
+7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr  # POPCAT
+boopkpWqe68MSxLqBGogs8ZbUDN4GXaLhFwNP7mpP1i5  # boop
+3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh  # WBTC
+SNS8DJbHc34nKySHVhLGMUUE72ho6igvJaxtq9T3cX3  # sns
+Cy1GS2FqefgaMbi45UunrUzin1rfEmTUYnomddzBpump  # MOBY
+
+# Pump.fun Tokens
+5DkLaee4Ctm9v8bka1zGeuPUTbngZaznZsc1t3L4pump  # zenai
+9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump  # Fart  
+8a5NY9MAdY3NjKsgPUYfqoZcmGKdZkotrjWgZM1dpump  # solbox
+6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN  # trump
+C5HdaWbqhJWsMB5WbGxhHgvmC513a11nL7F5SM5epump  # zinecoin
+fHUNprW7aSQadmPXFt4YyQUwv4VNua3VXZmeNxqpump  # crypto
+5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm  # inf
+8Y5MwnUM19uqhnsrFnKijrmn33CmHBTUoedXtTGDpump  # based
+6MQpbiTC2YcogidTmKqMLK82qvE9z5QEm7EP3AEDpump  # catwifmask
+FkqvTmDNgxgcdS7fPbZoQhPVuaYJPwSsP8mm4p7oNgf6  # dextoro
+DtR4D9FtVoTX2569gaL837ZgrB6wNjj6tkmnX9Rdk9B2  # aura
+Cq16t8jRSxtODcPYANothLYemBDkN6SVKjqSDZ99pump  # wifi
+BediSYEPUiuye8W5bFJueqwpLpry9CckehLEv1tBmoon  # nasdaq
+
+# Other Notable Tokens
+zBTCug3er3tLyffELcvDNrKkCymbPWysGcWihESYfLg   # zbtc
+AkePSMmyZ3hg85WyDMFUp1svEhzkbvbmwkSR5JPtbBLV  # ikon
+Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk  # launchcoin 

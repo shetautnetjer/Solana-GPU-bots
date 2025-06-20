@@ -1,0 +1,8 @@
+D:\Solana-GPU-bots\target\debug\deps\libfive8_core-c825d3ae703fa157.rmeta: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\../README.md
+
+D:\Solana-GPU-bots\target\debug\deps\libfive8_core-c825d3ae703fa157.rlib: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\../README.md
+
+D:\Solana-GPU-bots\target\debug\deps\five8_core-c825d3ae703fa157.d: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\../README.md
+
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\lib.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\five8_core-0.1.2\src\../README.md:

@@ -1,0 +1,10 @@
+D:\Solana-GPU-bots\target\debug\deps\rustls_platform_verifier-c3a0f0570c929dea.dll: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md
+
+D:\Solana-GPU-bots\target\debug\deps\librustls_platform_verifier-c3a0f0570c929dea.rlib: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md
+
+D:\Solana-GPU-bots\target\debug\deps\rustls_platform_verifier-c3a0f0570c929dea.d: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md
+
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md:

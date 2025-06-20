@@ -21,6 +21,9 @@ enum Commands {
     /// Initialize GPU and run diagnostics
     GpuTest,
     
+    /// Test hello-gpu integration specifically
+    TestGpu,
+    
     /// Monitor pools for a token pair with GPU-accelerated scoring
     Monitor {
         /// BASE/QUOTE mint addresses
@@ -72,9 +75,33 @@ async fn main() -> Result<()> {
                 Ok(report) => {
                     println!("✅ GPU Test Passed!");
                     println!("{}", serde_json::to_string_pretty(&report)?);
+                    
+                    // Also test hello-gpu integration
+                    println!("\n🔗 Testing hello-gpu integration...");
+                    match gpu::test_hello_gpu_vec_add() {
+                        Ok(_) => println!("✅ hello-gpu integration test passed!"),
+                        Err(e) => {
+                            eprintln!("❌ hello-gpu integration test failed: {}", e);
+                            // Don't exit, just warn
+                        }
+                    }
                 },
                 Err(e) => {
                     eprintln!("❌ GPU Test Failed: {}", e);
+                    std::process::exit(1);
+                }
+            }
+        },
+        
+        Commands::TestGpu => {
+            println!("🔗 Testing hello-gpu integration...");
+            match gpu::test_hello_gpu_vec_add() {
+                Ok(_) => {
+                    println!("✅ hello-gpu integration test passed!");
+                    println!("🎉 pool_indexer can successfully use hello-gpu functions!");
+                },
+                Err(e) => {
+                    eprintln!("❌ hello-gpu integration test failed: {}", e);
                     std::process::exit(1);
                 }
             }

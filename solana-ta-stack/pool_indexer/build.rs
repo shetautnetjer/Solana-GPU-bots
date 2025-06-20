@@ -14,6 +14,7 @@ fn main() {
         .arg(&ptx_path)
         .arg("kernels/score.cu")
         .arg("-arch=sm_75") // Or a different architecture if you need
+        .arg("--allow-unsupported-compiler") // Allow MSVC compatibility
         .status()
         .expect("Failed to run nvcc");
 
@@ -22,7 +23,7 @@ fn main() {
     }
 
     println!(
-        "cargo:rustc-env=KERNEL_PTX_PATH={}",
+        "cargo:rustc-env=KERNEL_SCORE_PTX={}",
         ptx_path.to_str().unwrap()
     );
 }

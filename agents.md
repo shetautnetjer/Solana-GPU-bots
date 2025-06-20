@@ -316,3 +316,33 @@ When AI assistants create GPU-accelerated trading features:
 5. **Document any new dependencies** or system requirements
 
 This ensures that GPU-accelerated trading features can be reliably developed and deployed in the Windows environment.
+
+---
+
+## GPU Workspace Integration Workflow (For Agents & Developers)
+
+1. **Environment Setup**
+   - Always run `hello-gpu\scripts\init_gpu_env.ps1` in every new shell before building or testing.
+   - This ensures CUDA, MSVC, and OpenSSL are available for all workspace crates.
+
+2. **hello-gpu as a Foundation**
+   - Develop and test all new GPU/CUDA code in `hello-gpu` first.
+   - Use these functions in other crates (like `pool_indexer`) via the workspace dependency once stable.
+
+3. **Testing Integration**
+   - To verify that `pool_indexer` can use `hello-gpu`, run:
+     ```
+     cargo run -p pool_indexer -- TestGpu
+     ```
+   - Or run the integration test:
+     ```
+     cargo test -p pool_indexer test_hello_gpu_integration
+     ```
+
+4. **Adding New GPU Features**
+   - Add new kernels and Rust wrappers in `hello-gpu`.
+   - Rebuild `hello-gpu` and then use the new features in `pool_indexer` or other workspace crates.
+
+5. **Troubleshooting**
+   - If you see errors about `cl.exe` or CUDA, re-run the environment setup script.
+   - If you add new kernels, rebuild `hello-gpu` before using them elsewhere.
