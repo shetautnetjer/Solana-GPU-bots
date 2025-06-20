@@ -1,0 +1,8 @@
+D:\Solana-GPU-bots\target\debug\deps\librustls_platform_verifier-e394657a7081e3b7.rmeta: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md
+
+D:\Solana-GPU-bots\target\debug\deps\rustls_platform_verifier-e394657a7081e3b7.d: C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md
+
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\lib.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\mod.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\verification\windows.rs:
+C:\Users\khama\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rustls-platform-verifier-0.5.3\src\../README.md:

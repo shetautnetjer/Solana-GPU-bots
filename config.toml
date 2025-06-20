@@ -1,0 +1,69 @@
+# Solana GPU Trading Bot Configuration
+# This file contains common settings for the trading bot
+
+[gpu]
+# GPU acceleration settings
+enabled = true
+# CUDA architecture (auto-detected if not specified)
+# arch = "compute_80"
+# Maximum GPU memory usage in MB
+max_memory_mb = 2048
+# Batch size for GPU operations
+batch_size = 1024
+
+[network]
+# Jupiter API settings
+jupiter_api_url = "https://lite-api.jup.ag"
+# WebSocket endpoint for real-time data
+ws_endpoint = "wss://api.mainnet-beta.solana.com"
+# RPC endpoint for Solana
+rpc_endpoint = "https://api.mainnet-beta.solana.com"
+# Request timeout in seconds
+timeout_seconds = 30
+# Rate limiting (requests per second)
+rate_limit = 10
+
+[trading]
+# Default slippage tolerance in basis points
+default_slippage_bps = 50
+# Minimum pool liquidity in USDC
+min_liquidity_usdc = 10000
+# Maximum trade size in USDC
+max_trade_size_usdc = 1000
+# Score threshold for trade execution
+score_threshold = 0.7
+
+[monitoring]
+# Pool monitoring settings
+update_interval_ms = 1000
+# CSV log file path
+log_file = "pool_updates.csv"
+# Enable real-time scoring
+enable_scoring = true
+# Technical analysis window sizes
+sma_windows = [5, 10, 20, 50]
+momentum_window = 14
+
+[logging]
+# Log level: trace, debug, info, warn, error
+level = "info"
+# Enable file logging
+file_logging = true
+# Log file path
+log_file_path = "trading_bot.log"
+# Enable console output
+console_output = true
+
+[whitelist]
+# Token whitelist file path
+file_path = "whitelist/mint_whitelist.txt"
+# Enable whitelist filtering
+enabled = true
+
+# Common token addresses
+[whitelist.tokens]
+USDC = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+SOL = "So11111111111111111111111111111111111111112"
+USDT = "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+RAY = "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R"
+SRM = "SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt" 
