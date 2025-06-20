@@ -1,1 +1,0 @@
-cargo:rustc-env=MIME_TYPES_GENERATED_PATH=D:\Solana-GPU-bots\target\release\build\mime_guess-c20ba4c21dc38c61\out\mime_types_generated.rs

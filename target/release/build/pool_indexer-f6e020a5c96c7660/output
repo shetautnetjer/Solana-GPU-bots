@@ -1,5 +1,0 @@
-cargo:warning=Compiling CUDA kernel: "kernels\\score.cu"
-score.cu
-cargo:rustc-env=KERNEL_SCORE_PTX=D:\Solana-GPU-bots\target\release\build\pool_indexer-f6e020a5c96c7660\out\score.ptx
-cargo:rerun-if-changed=kernels\score.cu
-cargo:warning=Found hello-gpu kernels at "../../hello-gpu/kernels"

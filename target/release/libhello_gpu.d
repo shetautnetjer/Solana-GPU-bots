@@ -1,1 +1,0 @@
-D:\Solana-GPU-bots\target\release\libhello_gpu.rlib: D:\Solana-GPU-bots\hello-gpu\build.rs D:\Solana-GPU-bots\hello-gpu\kernels\vec_add.cu D:\Solana-GPU-bots\hello-gpu\src\lib.rs D:\Solana-GPU-bots\target\release\build\hello-gpu-e56bd0efcf68d56c\out\vec_add.ptx

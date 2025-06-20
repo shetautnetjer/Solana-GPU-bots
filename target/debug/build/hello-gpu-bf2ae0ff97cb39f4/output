@@ -1,3 +1,0 @@
-vec_add.cu
-cargo:rustc-env=KERNEL_VEC_ADD_PTX=D:\Solana-GPU-bots\target\debug\build\hello-gpu-bf2ae0ff97cb39f4\out\vec_add.ptx
-cargo:rerun-if-changed=kernels\vec_add.cu
