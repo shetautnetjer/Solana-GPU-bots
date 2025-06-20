@@ -46,7 +46,7 @@ if (-not $isAdmin) {
 # Define OpenSSL paths
 $opensslDir = "C:\Program Files\OpenSSL-Win64"
 $opensslBin = "$opensslDir\bin"
-$opensslLib = "$opensslDir\lib\VC\x64\MT"
+$opensslLib = "$opensslDir\lib\VC\x64\MD"
 $opensslInclude = "$opensslDir\include"
 
 # Check if OpenSSL is already installed
